@@ -36,7 +36,7 @@ $FilePath = "C:\Temp\IMEI.csv"
 (1..3) | ForEach-Object {( (0..14) | ForEach-Object { Get-Random -Minimum 0 -Maximum 9 } ) -join '' } | ForEach-Object { "$_,imei,iPhone XS PlusPlus" } | Out-File -FilePath $FilePath -NoClobber -Force -Append
 
 # Get access token
-$AuthToken = Get-MSIntuneAuthToken -TenantName "configmgrse.onmicrosoft.com"
+$AuthToken = Get-MSIntuneAuthToken -TenantName "tenant.onmicrosoft.com"
 
 # Upload corporate device identifiers
 $CorporateIdentifierData = Import-Csv -Path $FilePath -Delimiter "," -Encoding UTF8 -ErrorAction Stop
